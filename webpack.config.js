@@ -1,8 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const { resolve } = require('path');
 const entry = [path.resolve(__dirname) + '/src/index.js'];
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin'); // plugin for output css styles in a separate file
+
+
+const src = resolve(__dirname, 'src'); // save src folder
 
 module.exports = function(env) {
     const isProd = env.production === true;
@@ -15,8 +20,19 @@ module.exports = function(env) {
                 template: './src/index.html',
                 filename: './index.html'
             }),
-            new MiniCssExtractPlugin()
+            new MiniCSSExtractPlugin({
+                filename: 'style.css', // filename for output css file
+            }),
+           /* new MiniCssExtractPlugin()*/
         ],
+        resolve: {
+            extensions: ['.ts', '.js'], // array of files extensions for import without extension & working import in .ts files
+            alias: {
+                '@': src,  //short path to src folder
+                '@scss': resolve(src, 'scss'),
+                '@images': resolve(src, 'images'),
+            }
+        },
         output: {
             path: path.resolve(__dirname, 'dist/'),
             publicPath: './',
@@ -37,6 +53,30 @@ module.exports = function(env) {
                     }
                 },
                 {
+                    test: /\.(c|sc)ss$/, // search style files (.css and .scss)
+                    use: [
+                        // if development mode then put styles in the <style>
+                        // if production mode then put styles in a separate file by using mini-css-extract-plugin loader
+                        !isProd ? 'style-loader' : MiniCSSExtractPlugin.loader,
+                        'css-loader', // for transform css styles to js module (processing all @import and url())
+                        {
+                            loader: 'postcss-loader', // loader for processing css styles by using postcss
+                            options: {
+                                postcssOptions: {
+                                    plugins: [
+                                        'postcss-preset-env', // for using presets (browserlist in package.json)
+                                    ],
+                                },
+                            },
+                        },
+                        'sass-loader', // transform scss to css styles
+                    ],
+                },
+
+
+
+
+               /* {
                     test: /\.css$/,
                     use: [
                         MiniCssExtractPlugin.loader,
@@ -48,7 +88,7 @@ module.exports = function(env) {
                                 }
                             },
                         }]
-                },
+                },*/
                 {
                     test: /\.(jpe?g|png|gif|svg)$/i,
                     use: [

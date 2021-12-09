@@ -7,13 +7,13 @@
 
 /// Coherent UI JavaScript interface.
 /// The `engine` module contains all functions for communication between the UI and the game / application.
-/*(function (factory) {
+(function (factory) {
 	if (typeof module === 'object' && module.exports) {
 		module.exports = factory(global, global.engine, false);
 	} else {
-		engine = factory(window, /!** @type {any} *!/(window).engine, true);
+		engine = factory(window, /** @type {any} */(window).engine, true);
 	}
-})(function (global, engine, hasOnLoad) {*/
+})(function (global, engine, hasOnLoad) {
 	'use strict';
 
 	var VERSION = [2, 0, 0, 0];
