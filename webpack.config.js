@@ -72,23 +72,6 @@ module.exports = function(env) {
                         'sass-loader', // transform scss to css styles
                     ],
                 },
-
-
-
-
-               /* {
-                    test: /\.css$/,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: "css-loader",
-                            options: {
-                                modules: {
-                                    localIdentName: '[name]__[local]___[hash:base64:5]'
-                                }
-                            },
-                        }]
-                },*/
                 {
                     test: /\.(jpe?g|png|gif|svg)$/i,
                     use: [
@@ -101,7 +84,14 @@ module.exports = function(env) {
                             }
                         }
                     ]
-                }
+                },
+                {
+                    test: /\.(ttf|otf)$/,
+                    use: [{
+                        loader: "file-loader",
+                        options: { name: '[name].[ext]', outputPath: 'fonts' }
+                    }]
+                },
             ]
         },
     };

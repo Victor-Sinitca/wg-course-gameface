@@ -17,6 +17,4 @@ window.postMessage = function(message) {
 };
 
 
-
-
 ReactDOM.render(<App />, document.getElementById("root"));

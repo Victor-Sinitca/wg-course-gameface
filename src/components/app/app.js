@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
 import {Header} from "../header/header";
-import {Main} from "../main/main";
-import "../../scss/main.scss"
-
-
-
+import "@scss/enterPoint.scss"
+import {MainContainer} from "@/components/mainContainer/MainContainer";
 
 
 
@@ -14,7 +11,7 @@ class App extends Component {
     return (
       <div id="app" className="app-container">
           <Header/>
-          <Main/>
+          <MainContainer/>
       </div>
     );
   }

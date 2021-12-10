@@ -20,7 +20,7 @@
 
   .main-nav-container {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px;
     box-sizing: border-box;
 
     display: flex;
@@ -50,7 +50,7 @@
   .main-nav-link {
     padding: 5px;
     border-bottom: 5px solid transparent;
-
+    font-family: "RobotoCondensed-Regular", sans-serif;
     font-size: s.$fzNav_content;
     text-transform: uppercase;
     white-space: nowrap;
