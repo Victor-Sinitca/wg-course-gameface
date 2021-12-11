@@ -14,7 +14,7 @@ export const Navigation = () => {
             <div className="header-nav-account">
                 <a className="login header-nav-link" href="#">Login</a>
                 <span>or</span>
-                <a className="create header-nav-link" href="#">фффCreate account</a>
+                <a className="create header-nav-link" href="#">Create account</a>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import App from "./components/app/app.js";
 // cohtml.js exports an ES6 module, you can use
 // import statement to include it in the bundle
 import '../cohtml.js';
+import "./scss/enterPoint.scss"
 import {pm} from 'postmessage-polyfill';
 import {fetch as fetchPolyfill} from 'whatwg-fetch';
 

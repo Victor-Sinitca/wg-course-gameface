@@ -1,58 +1,70 @@
 @use '~@scss/variables/colors' as c;
 @use '~@scss/variables/sizes' as s;
 
+:root {
+  --image: url(https://catoolwebdav-net-cdn.gcdn.co/catool/1b64c9e3b46742c348407308682efa21.png) ;
+  --image1: 'https://catoolwebdav-net-cdn.gcdn.co/catool/1b64c9e3b46742c348407308682efa21.png' ;
+}
+
 .main-container-content {
-  max-width: 1205px;
   display: flex;
+  height: 800px;
+  max-width: s.$blockWidth;
   flex-wrap: wrap;
   justify-content: center;
   color: white;
+  overflow-y:scroll;
 }
+.main-container-description_button-like-anim{
+  animation-name: heartAdd, heartAdd, heartAdd;
+  animation-duration: 0.875s, 0.875s, 0.667s;
+  animation-timing-function: linear, linear, linear;
+  animation-fill-mode: forwards, forwards, forwards;
+ /* animation: heartAdd 1.5s infinite ease-in-out;*/
+}
+
 
 .main-container-product {
   display: flex;
   position: relative;
-  height: 300px;
-  width: 24%;
+  height: s.$itemWidth;
+  width: s.$itemWidth;
   margin: 1px;
-
+  overflow: hidden;
   &:hover {
     background: rgba(0, 0, 0, 0.7);
-
-    .main-container-description_button-purchase {
-      bottom: 0;
-      position: relative;
-
+    .main-container-description{
+        bottom: 0;
     }
-
   }
 
   .main-container-link {
     display: flex;
+    align-items: center;
     width: 100%;
     height: 100%;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1);
+
+   /* background: url(var(--image1)) center/contain rgba(0, 0, 0, 0.1) no-repeat;*/
+
+
 
     .main-container-link_img {
-      /* display: flex;*/
-
-
-      max-width: 100%;
-      /*height: 50%;
-      width: 100%;*/
+      height: 50%;
+      width: 100%;
     }
-
   }
 
 
   .main-container-description {
     display: flex;
+    width: 100%;
     flex-direction: row;
-    padding: 30px;
+    padding: 20px;
     position: absolute;
-    overflow: hidden;
-    bottom: 0;
+    bottom: -60px;
     left: 0;
 
     justify-content: flex-start;
@@ -61,13 +73,16 @@
 
     .main-container-description-filter {
       display: flex;
-      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+     /* flex-direction: column;*/
 
 
       .main-container-description_flag {
-        display: flex;
+        /*display: flex;*/
         height: 14px;
-        width: 14px;
+        width: 26px;
+
 
         &[data-country='china'] {
           background: url('~@images/country/filter-china.png') center/cover no-repeat;
@@ -115,6 +130,8 @@
       }
 
       .main-container-description_type {
+        margin-left: 10px;
+        margin-right: 10px;
 
         &[data-type='AT-SPG'] {
           height: 10px;
@@ -148,26 +165,26 @@
 
       }
 
-      & h2 {
-
+      .main-container-description_name {
+        display: flex;
+        flex: 1 0 auto;
+        width: 70px;
+        align-self:center;
         font-size: s.$fzDescription_product;
         font-weight: 400;
         line-height: 1.2;
+        white-space: normal;
         letter-spacing: 0.1em;
         font-family: "RobotoCondensed-Regular", sans-serif;
         text-transform: uppercase;
         text-shadow: 0 1px 0 rgba(0, 0, 0, 0.33);
         color: c.$fColorDescription_product;
       }
-
-
     }
-
-
     .main-container-description_price {
       display: flex;
       width: 100%;
-      margin: 15px 0;
+      margin-top: 15px;
       font-family: "RobotoCondensed-Regular", sans-serif;
       font-size: s.$fzDescription_price;
 
@@ -179,56 +196,60 @@
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.33);
       color: c.$fColorDescription_price;
     }
-  }
+    .main-container-description_button-purchase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 39px;
+      width: 100px;
+      margin-top:15px ;
 
-  .main-container-description_button-purchase {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      cursor:pointer;
 
-    height: 39px;
-    width: 100px;
-    position: absolute;
-    bottom: -54px;
 
-    font-family: "RobotoCondensed-Regular", sans-serif;
-    background: c.$bgColorButton_purchase;
-    font-size: s.$fzButton_content_purchase;
-    font-weight: 400;
-    color: c.$fColorWhite;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
+      font-family: "RobotoCondensed-Regular", sans-serif;
+      background: c.$bgColorButton_purchase;
+      font-size: s.$fzButton_content_purchase;
+      font-weight: 400;
+      color: c.$fColorWhite;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
 
-    transition: background 0.3s;
+      transition: background 0.3s;
 
-    &:hover {
-      background: rgba(233, 81, 4, 0.8);
+      &:hover {
+        background: rgba(233, 81, 4, 0.8);
+      }
+
     }
-
   }
+
 
   .main-container-description_button-like {
     position: absolute;
     right: 5%;
     top: 5%;
-    width: 37px;
-    height: 33px;
-
-    background: url('~@images/buttons/heartB.svg') no-repeat;
-
-    &:hover {
-      animation: heartAdd 1.5s infinite ease-in-out;
-    }
+    width: s.$itemWidth/8;
+    height: s.$itemWidth/8;
+    cursor:pointer;
+    background: url('~@images/buttons/heartB.png') center/contain no-repeat;
+   /* &:hover {
+     !* animation: heartAdd 1.5s infinite ease-in-out;*!
+    }*/
   }
 
-  .button-like_active {
-    background: url('~@images/buttons/heart.svg') no-repeat center;
+  /*.button-like_active {
+    background: url('~@images/buttons/heart.png') no-repeat center;
 
     &:hover {
       animation: heartRemove 1.5s ease-in-out;
       transform-origin: center bottom;
     }
-  }
+  }*/
+}
+
+.main-container-product-span-2{
+  width: 38vw;
 }
 
 
@@ -243,7 +264,7 @@
 
 @keyframes heartRemove {
   10% {
-    transform: rotate (-30deg)
+    transform: rotate(-30deg)
   }
   30% {
     transform: rotate(+30deg)
@@ -264,7 +285,7 @@
 
 
 //стиль устанавливается для анимации покупки продукта в addWishlist.js
-.productMoveStyle {
+/*.productMoveStyle {
   position: fixed;
   opacity: 1;
   transition: transform 1.5s, opacity 3s;
@@ -281,4 +302,4 @@
   &:hover .imgBG {
     opacity: 1;
   }
-}
+}*/

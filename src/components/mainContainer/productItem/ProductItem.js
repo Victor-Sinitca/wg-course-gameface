@@ -2,8 +2,7 @@ import React from "react";
 
 
 export const ProductItem = ({product}) => {
-    const dataType=  product.data.filter  ? product.data.filter.type: ''
-    const dataFilter=  product.data.filter  ? product.data.filter.nation : ''
+
     const flagStyle = () => {
         return {}
     }
@@ -14,14 +13,26 @@ export const ProductItem = ({product}) => {
 
     return (
         <div className="main-container-product">
-            <a className="main-container-link">
-                <img className="main-container-link_img" src={product.data.images.span_2x1} alt="Танк"/>
-            </a>
+            <div className="main-container-link" >
+                   <img className="main-container-link_img"  src={product.data.images.span_2x1} alt="Танк"/>
+            </div>
             <div className="main-container-description">
                 <div className="main-container-description-filter">
-                    <span className="main-container-description_flag" data-country={dataType}/>
-                    <span className="main-container-description_type" data-type={dataFilter}/>
-                    <h2>{product.data.name}</h2>
+                    {product.data.filter?
+                    <>
+                        <span className="main-container-description_flag" data-country={
+                            product.data.filter
+                                ? product.data.filter.nation
+                                : ''
+                        }/>
+                        <span className="main-container-description_type" data-type={
+                            product.data.filter
+                                ? product.data.filter.type
+                                : ''
+                        }/>
+                    </>:null
+                    }
+                    <div className="main-container-description_name">{product.data.name}</div>
                 </div>
                 <div className="main-container-description_price">
                     {product.data.price.basic.cost} {product.data.price.basic.currency}</div>
@@ -29,7 +40,7 @@ export const ProductItem = ({product}) => {
                     <div>purchase</div>
                 </div>
             </div>
-            <div className="main-container-description_button-like"/>
+            <div className="main-container-description_button-like-anim main-container-description_button-like"/>
         </div>
 
     )

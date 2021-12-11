@@ -1,8 +1,27 @@
-@import '~@scss/header';
-@import '~@scss/main-nav';
-@import '~@scss/main-content';
+@font-face {
+  src: url("../../fonts/RobotoCondensed-Regular.ttf");
+  font-family: "RobotoCondensed-Regular";
+  coh-font-sdf: off;
+}
+body {
+  margin: 0 0;
+}
+.app-container {
+  display: flex;
+  flex: 1;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  background-color: #1c1b15;
+}
 
 
+
+
+
+
+
+/*
 body {
   margin: 0 0;
 }
@@ -36,3 +55,4 @@ button {
   padding: 0 30px;
   box-sizing: border-box;
 }
+*/

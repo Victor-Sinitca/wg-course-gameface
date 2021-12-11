@@ -5,8 +5,8 @@ import {Main} from "@/components/mainContainer/main/Main";
 
 export const MainContainer =()=>{
     return(
-        <div id="main1" className="main">
-            <div className="main-container wrapper">
+        <div className="main">
+            <div id="main1" className="main-container">
                 <MainNav/>
                 <Main/>
             </div>

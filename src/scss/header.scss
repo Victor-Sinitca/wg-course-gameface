@@ -1,47 +1,33 @@
 @use '~@scss/variables/colors' as c;
 @use '~@scss/variables/sizes' as s;
 
-@font-face {
-  src: url("../../fonts/RobotoCondensed-Regular.ttf");
-  font-family: "RobotoCondensed-Regular";
-  coh-font-sdf: off;
-}
-
-.header {
-  width: 100%;
-  padding: 8px 8px;
-
-  /*position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1;*/
-
+.header{
   display: flex;
+  height: 60px;
+  width: 100vw;
   justify-content: center;
   background-color: c.$bgColor_main;
-
 }
 
-.header-container {
-  width: 100%;
 
+.header-container {
   display: flex;
+  height: 100%;
+  width: 80vw;
+  padding: 8px 8px;
   justify-content: space-between;
   align-items: center;
 }
 
 .header-container-logo {
   padding: 10px 0;
-
   display: flex;
   align-items: center;
-
   &:hover {
     h1 {
       color: c.$fColorHeader_active;
     }
   }
-
   span {
     height: 23px;
     width: 23px;
@@ -77,7 +63,7 @@
     flex-direction: row;
     font-family: "RobotoCondensed-Regular", sans-serif;
     padding: 10px 10px;
-
+    cursor:pointer;
     font-size: s.$fzHeader_nav;
     font-weight: 400;
     letter-spacing: 0.025em;

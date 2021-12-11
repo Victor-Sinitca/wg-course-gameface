@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
 import {Header} from "../header/header";
-import "@scss/enterPoint.scss"
 import {MainContainer} from "@/components/mainContainer/MainContainer";
 
-
+import heartB from "@images/buttons/heartB.png"
 
 class App extends Component {
   render() {
