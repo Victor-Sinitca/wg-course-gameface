@@ -3,12 +3,14 @@
 
 .main-container-content {
   display: flex;
+  flex: 1 0 auto;
   height: s.$mainContentHeight;
   max-width: s.$blockWidth;
   flex-wrap: wrap;
   justify-content: center;
   color: white;
-  overflow-y: scroll;
+  overflow:scroll;
+ /* overflow-y: scroll;*/
 }
 
 .main-container-product {
@@ -35,10 +37,13 @@
     position: relative;
     overflow: hidden;
     background-image: url("../images/background/Layer40.png");
-    background-color: rgba(0, 0, 0, 0.1) ;
+    background-color: rgba(255, 194, 0, 0.2);
     background-repeat:  no-repeat;
     background-position:  center;
     background-size: contain ;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.5s;
+
 
     .main-container-link_img {
       height: 50%;
@@ -232,7 +237,7 @@
     width: s.$itemWidth/8;
     height: s.$itemWidth/8;
     cursor: pointer;
-    background: url('~@images/buttons/heartB.svg') center/contain no-repeat;
+    background: url('~@images/buttons/heartB.png') center/contain no-repeat;
 
     &:hover {
       animation: heartAdd 1.5s infinite ease-in-out, heartRemove 0s ease-in-out;
@@ -240,7 +245,7 @@
   }
 
   .button-like_active {
-    background: url('~@images/buttons/heart.svg') center/contain no-repeat;
+    background: url('~@images/buttons/heart.png') center/contain no-repeat;
 
     &:hover {
       animation: heartRemove 1.5s ease-in-out, heartAdd 0s infinite ease-in-out;
@@ -260,6 +265,14 @@
   }
   75% {
     transform: scale(0.9)
+  }
+}
+@keyframes productPurchase {
+  25% {
+    transform: scale(1.2)
+  }
+  60% {
+    transform: scale(1)
   }
 }
 

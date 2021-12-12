@@ -5,8 +5,11 @@
 .main{
   display: flex;
   flex: 1 0 auto;
-  background: url('~@images/background/bgimage.png') no-repeat #1a1919;
-  background-size: cover;
+  background-image: url('~@images/background/bgimage.png');
+  background-color: #1a1919 ;
+  background-repeat:  no-repeat;
+  background-position:  top;
+  background-size: contain ;
   justify-content: center;
 }
 

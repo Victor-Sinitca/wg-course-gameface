@@ -22,22 +22,26 @@ export const ProductItem: FC<PropsType> = ({product, isWish, isShop}) => {
     let containerStyle = "main-container-product"
     if (product.span === 2) containerStyle = containerStyle + " main-container-product-span-2"
 
+    const imgStyle={
+        backgroundImage:`url(${product.data.images.span_2x1})`,
+        backgroundColor: isShop? "rgba(255, 194, 0, 0.2)": "rgba(0, 0, 0, 0.2)",
+        animationName: isShop? "productPurchase" : ""
+    }
+
 
 
 
     const handlerAddProductToWishlist = () => {
         dispatch(actionDialog.addProductToWishlist(product.data.id))
-        console.log("handlerAddProductToWishlist")
     }
     const handlerAddProductToShoppingList = () => {
         dispatch(actionDialog.addProductToShoppingList(product.data.id))
-        console.log("handlerAddProductToShoppingList")
     }
 
 
     return (
         <div className={containerStyle}>
-            <div className="main-container-link" style={{backgroundImage:`url(${product.data.images.span_2x1})`}}/>
+            <div className="main-container-link" style={imgStyle}/>
             <div className="main-container-description">
                 <div className="main-container-description-filter">
                     {product.data.filter ?
