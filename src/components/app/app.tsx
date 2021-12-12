@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+// @ts-ignore
 import { hot } from "react-hot-loader";
 import {Header} from "../header/header";
 import {MainContainer} from "@/components/mainContainer/MainContainer";
 
-import heartB from "@images/buttons/heartB.png"
 
-class App extends Component {
+
+export class App extends Component {
   render() {
     return (
       <div id="app" className="app-container">

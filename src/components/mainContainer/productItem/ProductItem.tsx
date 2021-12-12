@@ -1,7 +1,12 @@
-import React from "react";
+import React, {FC} from "react";
 
 
-export const ProductItem = ({product}) => {
+type PropsType={
+    product:any
+}
+
+
+export const ProductItem: FC<PropsType> = ({product}) => {
 
     const flagStyle = () => {
         return {}
@@ -40,7 +45,7 @@ export const ProductItem = ({product}) => {
                     <div>purchase</div>
                 </div>
             </div>
-            <div style={{wight:"80px"}} className="main-container-description_button-like-anim main-container-description_button-like"/>
+            <div className="main-container-description_button-like-anim main-container-description_button-like"/>
         </div>
 
     )

@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { resolve } = require('path');
-const entry = [path.resolve(__dirname) + '/src/index.js'];
+const entry = [path.resolve(__dirname) + '/src/index.tsx'];
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin'); // plugin for output css styles in a separate file
@@ -26,7 +26,7 @@ module.exports = function(env) {
            /* new MiniCssExtractPlugin()*/
         ],
         resolve: {
-            extensions: ['.ts', '.js'], // array of files extensions for import without extension & working import in .ts files
+            extensions: ['.ts', '.tsx', '.js'], // array of files extensions for import without extension & working import in .ts files
             alias: {
                 '@': src,  //short path to src folder
                 '@scss': resolve(src, 'scss'),
@@ -41,6 +41,11 @@ module.exports = function(env) {
         mode: isProd ? 'production' : 'development',
         module: {
             rules: [
+                {
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: '/node_modules/'
+                },
                 {
                     test: /\.js$/,
                     exclude: /(node_modules)/,
