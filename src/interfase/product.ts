@@ -39,14 +39,15 @@ export interface IProductData {
 
 export interface ITechniqueData extends IProductData {
   filter: {
-    country: TCountry;
-    type: TTechnique;
-    tier: TTier;
+    nation: TCountry,
+    type: TTechnique,
+    tier: TTier,
+    is_wheeled: boolean
   };
 }
 
 export interface IProduct {
   type: TFilter;
   span: number;
-  data: ITechniqueData | IProductData;
+  data: ITechniqueData;
 }

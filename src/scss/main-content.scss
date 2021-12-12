@@ -1,28 +1,15 @@
 @use '~@scss/variables/colors' as c;
 @use '~@scss/variables/sizes' as s;
 
-:root {
-  --image: url(https://catoolwebdav-net-cdn.gcdn.co/catool/1b64c9e3b46742c348407308682efa21.png) ;
-  --image1: 'https://catoolwebdav-net-cdn.gcdn.co/catool/1b64c9e3b46742c348407308682efa21.png' ;
-}
-
 .main-container-content {
   display: flex;
-  height: 800px;
+  height: s.$mainContentHeight;
   max-width: s.$blockWidth;
   flex-wrap: wrap;
   justify-content: center;
   color: white;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
-/*.main-container-description_button-like-anim{
-  animation-name: heartAdd, heartAdd, heartAdd;
-  animation-duration: 0.875s, 0.875s, 0.667s;
-  animation-timing-function: linear, linear, linear;
-  animation-fill-mode: forwards, forwards, forwards;
- !* animation: heartAdd 1.5s infinite ease-in-out;*!
-}*/
-
 
 .main-container-product {
   display: flex;
@@ -31,10 +18,12 @@
   width: s.$itemWidth;
   margin: 1px;
   overflow: hidden;
+
   &:hover {
     background: rgba(0, 0, 0, 0.7);
-    .main-container-description{
-        bottom: 0;
+
+    .main-container-description {
+      bottom: 0;
     }
   }
 
@@ -45,16 +34,17 @@
     height: 100%;
     position: relative;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.1);
-
-   /* background: url(var(--image1)) center/contain rgba(0, 0, 0, 0.1) no-repeat;*/
-
-
+    background-image: url("../images/background/Layer40.png");
+    background-color: rgba(0, 0, 0, 0.1) ;
+    background-repeat:  no-repeat;
+    background-position:  center;
+    background-size: contain ;
 
     .main-container-link_img {
       height: 50%;
       width: 100%;
     }
+
   }
 
 
@@ -75,7 +65,7 @@
       display: flex;
       width: 100%;
       justify-content: center;
-     /* flex-direction: column;*/
+      /* flex-direction: column;*/
 
 
       .main-container-description_flag {
@@ -169,7 +159,7 @@
         display: flex;
         flex: 1 0 auto;
         width: 70px;
-        align-self:center;
+        align-self: center;
         font-size: s.$fzDescription_product;
         font-weight: 400;
         line-height: 1.2;
@@ -181,6 +171,7 @@
         color: c.$fColorDescription_product;
       }
     }
+
     .main-container-description_price {
       display: flex;
       width: 100%;
@@ -196,15 +187,16 @@
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.33);
       color: c.$fColorDescription_price;
     }
+
     .main-container-description_button-purchase {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 39px;
       width: 100px;
-      margin-top:15px ;
+      margin-top: 15px;
 
-      cursor:pointer;
+      cursor: pointer;
 
 
       font-family: "RobotoCondensed-Regular", sans-serif;
@@ -222,6 +214,14 @@
       }
 
     }
+
+    .button-purchase_active {
+      background: rgba(64, 101, 43, 0.8);
+
+      &:hover {
+        background: rgba(64, 101, 43, 0.8);
+      }
+    }
   }
 
 
@@ -231,24 +231,26 @@
     top: 5%;
     width: s.$itemWidth/8;
     height: s.$itemWidth/8;
-    cursor:pointer;
-    background: url('~@images/buttons/heartB.png') center/contain no-repeat;
+    cursor: pointer;
+    background: url('~@images/buttons/heartB.svg') center/contain no-repeat;
+
     &:hover {
-      animation: heartAdd 1.5s infinite ease-in-out;
+      animation: heartAdd 1.5s infinite ease-in-out, heartRemove 0s ease-in-out;
     }
   }
 
   .button-like_active {
-    background: url('~@images/buttons/heart.png') center/contain no-repeat ;
+    background: url('~@images/buttons/heart.svg') center/contain no-repeat;
+
     &:hover {
-      animation: heartRemove 1.5s ease-in-out;
+      animation: heartRemove 1.5s ease-in-out, heartAdd 0s infinite ease-in-out;
       transform-origin: center bottom;
     }
   }
 }
 
-.main-container-product-span-2{
-  width: 38vw;
+.main-container-product-span-2 {
+  width: s.$itemWidthSpan2;
 }
 
 

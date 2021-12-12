@@ -1,8 +1,11 @@
 import {AppStateType} from "./redux";
 
-export const getPro =(state:AppStateType)=>{
-    return state.chat.messages
+export const getProducts =(state:AppStateType)=>{
+    return state.productPage.productData
 }
-export const getStatus =(state:AppStateType)=>{
-    return state.chat.status
+export const getUserState =(state:AppStateType)=>{
+    return state.productPage.userData
+}
+export const getSelectedProductType =(state:AppStateType)=>{
+    return state.productPage.selectedProductType
 }
