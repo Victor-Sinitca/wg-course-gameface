@@ -55,20 +55,8 @@ module.exports = function(env) {
                 {
                     test: /\.(c|sc)ss$/, // search style files (.css and .scss)
                     use: [
-                        // if development mode then put styles in the <style>
-                        // if production mode then put styles in a separate file by using mini-css-extract-plugin loader
-                        !isProd ? 'style-loader' : MiniCSSExtractPlugin.loader,
+                        MiniCSSExtractPlugin.loader,
                         'css-loader', // for transform css styles to js module (processing all @import and url())
-                        {
-                            loader: 'postcss-loader', // loader for processing css styles by using postcss
-                            options: {
-                                postcssOptions: {
-                                    plugins: [
-                                        'postcss-preset-env', // for using presets (browserlist in package.json)
-                                    ],
-                                },
-                            },
-                        },
                         'sass-loader', // transform scss to css styles
                     ],
                 },

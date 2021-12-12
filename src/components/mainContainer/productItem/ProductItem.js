@@ -40,7 +40,7 @@ export const ProductItem = ({product}) => {
                     <div>purchase</div>
                 </div>
             </div>
-            <div className="main-container-description_button-like-anim main-container-description_button-like"/>
+            <div style={{wight:"80px"}} className="main-container-description_button-like-anim main-container-description_button-like"/>
         </div>
 
     )

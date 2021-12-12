@@ -15,13 +15,13 @@
   color: white;
   overflow-y:scroll;
 }
-.main-container-description_button-like-anim{
+/*.main-container-description_button-like-anim{
   animation-name: heartAdd, heartAdd, heartAdd;
   animation-duration: 0.875s, 0.875s, 0.667s;
   animation-timing-function: linear, linear, linear;
   animation-fill-mode: forwards, forwards, forwards;
- /* animation: heartAdd 1.5s infinite ease-in-out;*/
-}
+ !* animation: heartAdd 1.5s infinite ease-in-out;*!
+}*/
 
 
 .main-container-product {
@@ -233,19 +233,18 @@
     height: s.$itemWidth/8;
     cursor:pointer;
     background: url('~@images/buttons/heartB.png') center/contain no-repeat;
-   /* &:hover {
-     !* animation: heartAdd 1.5s infinite ease-in-out;*!
-    }*/
+    &:hover {
+      animation: heartAdd 1.5s infinite ease-in-out;
+    }
   }
 
-  /*.button-like_active {
-    background: url('~@images/buttons/heart.png') no-repeat center;
-
+  .button-like_active {
+    background: url('~@images/buttons/heart.png') center/contain no-repeat ;
     &:hover {
       animation: heartRemove 1.5s ease-in-out;
       transform-origin: center bottom;
     }
-  }*/
+  }
 }
 
 .main-container-product-span-2{
