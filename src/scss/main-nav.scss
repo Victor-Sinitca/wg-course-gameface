@@ -17,7 +17,7 @@
 .main-container {
   display: flex;
   flex: 1 0 auto;
-  max-width: 80vw;
+  max-width: s.$blockWidth;
   flex-direction: column;
   align-items: center;
 }
@@ -37,9 +37,6 @@
   height: 98px;
   width: 185px;
   font-size: 0;
-
-
-
   background: url('~@images/logo/logo.png') no-repeat;
   background-size: contain;
 }
@@ -53,8 +50,9 @@
 }
 
 .main-nav-link {
-  margin: 0 5px;
-  padding: 5px;
+  /*margin: 0 5px;*/
+  margin-left: 40px;
+  padding: 5px 10px;
   border-bottom: 5px solid transparent;
   font-family: "RobotoCondensed-Regular", sans-serif;
   font-size: s.$fzNav_content;
@@ -62,8 +60,6 @@
   white-space: nowrap;
   color: c.$fColorContent_nav;
   cursor:pointer;
-
-
   transition: border-bottom 1.1s;
 
   &:hover, &:focus {

@@ -13,7 +13,7 @@
 .header-container {
   display: flex;
   height: 100%;
-  width: 80vw;
+  width: s.$blockWidth;
   padding: 8px 8px;
   justify-content: space-between;
   align-items: center;
@@ -62,7 +62,7 @@
     display: flex;
     flex-direction: row;
     font-family: "RobotoCondensed-Regular", sans-serif;
-    padding: 10px 10px;
+    padding: 10px 0px;
     cursor:pointer;
     font-size: s.$fzHeader_nav;
     font-weight: 400;
@@ -77,6 +77,7 @@
     }
 
     span {
+      margin-left: 5px;
       color: c.$fColorWhite;
     }
   }
@@ -89,8 +90,12 @@
     gap: 10px;
 
     span {
-      color: c.$fColorWhite;
+      margin: 0 5px;
+      color: c.$fColorHeader_gray;
     }
 
+  }
+  .header-link-wrapper{
+    margin-left: 60px;
   }
 }

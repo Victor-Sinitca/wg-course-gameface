@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import {IProduct} from "@/interfase/product";
 import {useDispatch} from "react-redux";
-import {actionDialog} from "@/redux/productReducer";
+import {actionShop} from "@/redux/shopReducer";
 
 
 type PropsType = {
@@ -9,7 +9,6 @@ type PropsType = {
     isWish: boolean,
     isShop: boolean
 }
-
 
 export const ProductItem: FC<PropsType> = ({product, isWish, isShop}) => {
     const dispatch = useDispatch()
@@ -28,14 +27,11 @@ export const ProductItem: FC<PropsType> = ({product, isWish, isShop}) => {
         animationName: isShop? "productPurchase" : ""
     }
 
-
-
-
     const handlerAddProductToWishlist = () => {
-        dispatch(actionDialog.addProductToWishlist(product.data.id))
+        dispatch(actionShop.addProductToWishlist(product.data.id))
     }
     const handlerAddProductToShoppingList = () => {
-        dispatch(actionDialog.addProductToShoppingList(product.data.id))
+        dispatch(actionShop.addProductToShoppingList(product.data.id))
     }
 
 
@@ -63,7 +59,7 @@ export const ProductItem: FC<PropsType> = ({product, isWish, isShop}) => {
                 <div className="main-container-description_price">
                     {product.data.price.basic.cost} {product.data.price.basic.currency}</div>
                 <div onClick={handlerAddProductToShoppingList} className={shopStyle}>
-                    <div>{isShop ? "purchase added" : "purchase"}</div>
+                    <div>{isShop ? "added" : "purchase"}</div>
                 </div>
             </div>
             <div onClick={handlerAddProductToWishlist} className={wishStyle}/>

@@ -10,7 +10,6 @@
   justify-content: center;
   color: white;
   overflow:scroll;
- /* overflow-y: scroll;*/
 }
 
 .main-container-product {
@@ -44,7 +43,6 @@
     animation-timing-function: ease-in-out;
     animation-duration: 1.5s;
 
-
     .main-container-link_img {
       height: 50%;
       width: 100%;
@@ -70,11 +68,9 @@
       display: flex;
       width: 100%;
       justify-content: center;
-      /* flex-direction: column;*/
 
 
       .main-container-description_flag {
-        /*display: flex;*/
         height: 14px;
         width: 26px;
 
@@ -224,7 +220,7 @@
       background: rgba(64, 101, 43, 0.8);
 
       &:hover {
-        background: rgba(64, 101, 43, 0.8);
+        background: rgba(49, 75, 33, 0.8);
       }
     }
   }
@@ -296,24 +292,3 @@
     transform: scale(1)
   }
 }
-
-
-//стиль устанавливается для анимации покупки продукта в addWishlist.js
-/*.productMoveStyle {
-  position: fixed;
-  opacity: 1;
-  transition: transform 1.5s, opacity 3s;
-  z-index: 2;
-
-  &.disabled {
-    pointer-events: none;
-  }
-
-  &.a.disabled {
-    pointer-events: none;
-  }
-
-  &:hover .imgBG {
-    opacity: 1;
-  }
-}*/

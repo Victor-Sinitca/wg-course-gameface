@@ -10,14 +10,14 @@ import {pm} from 'postmessage-polyfill';
 // @ts-ignore
 import {fetch as fetchPolyfill} from 'whatwg-fetch';
 
-window.postMessage = function(message) {
+/*window.postMessage = function(message) {
     pm({
         type: message.type,
         origin: 'http://127.0.0.1/:9000',
         target: window,
         data: message.data
     });
-};
+};*/
 
 
 ReactDOM.render(<App/>, document.getElementById("root"));

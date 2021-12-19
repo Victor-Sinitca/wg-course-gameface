@@ -1,10 +1,8 @@
 import React from "react";
-// @ts-ignore
-import dataJson from "../data.json"
 import {ProductItem} from "@/components/mainContainer/productItem/ProductItem";
 import {useSelector} from "react-redux";
-import {getProducts, getUserState} from "@/redux/productSelector";
 import {IProduct} from "@/interfase/product";
+import {getProducts, getUserState} from "@/redux/shopSelector";
 
 //аналог grid-auto-flow  для flexbox
 const setPositionProducts=(productData:IProduct[])=>{

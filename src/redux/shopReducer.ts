@@ -16,33 +16,36 @@ let initialState = {
 };
 
 type initialStateType = typeof initialState
-const productReducer = (state = initialState as initialStateType, action: ActionType): initialStateType => {
+const shopReducer = (state = initialState as initialStateType, action: ActionType): initialStateType => {
     let stateCopy: initialStateType
     switch (action.type) {
-        case "PR/ADD_PRODUCT_TO_WISHLIST":
+        case "PR/ADD_PRODUCT_TO_WISHLIST":{
             stateCopy = {...state}
             const length = stateCopy.userData.wishlist.length
             stateCopy.userData = {...state.userData}
             stateCopy.userData.wishlist = state.userData.wishlist.filter((value: string) => value !== action.productId)
             if (stateCopy.userData.wishlist.length === length) stateCopy.userData.wishlist.push(action.productId)
             return stateCopy
-        case "PR/ADD_PRODUCT_TO_SHOPINGLIST":
+        }
+        case "PR/ADD_PRODUCT_TO_SHOPINGLIST":{
             stateCopy = {...state}
-            if (!stateCopy.userData.shoppingList.includes(action.productId)) {
-                stateCopy.userData = {...state.userData}
-                stateCopy.userData.shoppingList.push(action.productId)
-            }
+            const length = stateCopy.userData.shoppingList.length
+            stateCopy.userData = {...state.userData}
+            stateCopy.userData.shoppingList = state.userData.shoppingList.filter((value: string) => value !== action.productId)
+            if (stateCopy.userData.shoppingList.length === length) stateCopy.userData.shoppingList.push(action.productId)
             return stateCopy
-        case "PR/SET_SELECTED_PRODUCT_TYPE":
+        }
+        case "PR/SET_SELECTED_PRODUCT_TYPE":{
             return {
                 ...state, selectedProductType: action.productType
             }
+        }
         default:
             return state;
     }
 }
-type ActionType = InferActionsTypes<typeof actionDialog>
-export const actionDialog = {
+type ActionType = InferActionsTypes<typeof actionShop>
+export const actionShop = {
     addProductToWishlist: (productId: string) => ({type: 'PR/ADD_PRODUCT_TO_WISHLIST', productId} as const),
     addProductToShoppingList: (productId: string) => ({type: 'PR/ADD_PRODUCT_TO_SHOPINGLIST', productId} as const),
     setSelectedProductType: (productType: TFilter | "All") => ({
@@ -50,4 +53,4 @@ export const actionDialog = {
         productType
     } as const),
 }
-export default productReducer;
+export default shopReducer;

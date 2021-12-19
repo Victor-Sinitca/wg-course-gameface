@@ -1,8 +1,8 @@
 import { combineReducers, createStore} from "redux";
-import productReducer from "@/redux/productReducer";
+import shopReducer from "./shopReducer";
 
 let rootReducers = combineReducers({
-    productPage: productReducer,
+    shopReducer: shopReducer,
 });
 type RootReducerType = typeof rootReducers
 export type AppStateType = ReturnType<RootReducerType>
